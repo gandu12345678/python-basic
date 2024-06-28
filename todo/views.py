@@ -3,9 +3,9 @@ from django.shortcuts import render,HttpResponse
 # Create your views here.
 def index(request):
     people=[
-        {"name":"ram","age":"2"},
-        {"name":"shyam","age":"3"},
-        {"name":"john","age":"4"},
+        {"name":"ram","age":20},
+        {"name":"shyam","age":30},
+        {"name":"john","age":40},
 
         
     ]

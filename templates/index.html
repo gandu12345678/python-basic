@@ -11,7 +11,14 @@
                     <tr>
                        <td>{{forloop.counter}}</td>
                        <td>{{person.name}}</td>
-                       <td>{{person.age}}</td>
+                       <td>
+                        
+                            {% if person.age > 25 %}
+                                ok
+                            {% else %}
+                                not ok
+                            {% endif %}
+                       </td>
                     <tr>
                 {% endfor %}
             </table>
