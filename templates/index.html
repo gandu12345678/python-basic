@@ -1,5 +1,21 @@
 <html>
     <body>
-        <h1>k xa khabar<h1>
+        <h1>people<h1>
+            <table border="1">
+                <tr>
+                    <th>sn</th>
+                    <th>name</th>
+                    <th>age</th>
+                <tr>
+                {% for person in people %}
+                    <tr>
+                       <td>{{forloop.counter}}</td>
+                       <td>{{person.name}}</td>
+                       <td>{{person.age}}</td>
+                    <tr>
+                {% endfor %}
+            </table>
+
+
     <body>
 <html>
