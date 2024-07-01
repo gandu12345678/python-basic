@@ -1,22 +1,32 @@
 <html>
     <body>
-        <h1>people<h1>
+        <h1>todo list<h1>
             <table border="1">
                 <tr>
                     <th>sn</th>
                     <th>name</th>
-                    <th>age</th>
+                    <th>description</th>
+                    <th>status</th>
                 <tr>
-                {% for person in people %}
+                {% for task in tasks %}
                     <tr>
                        <td>{{forloop.counter}}</td>
-                       <td>{{person.name}}</td>
+                       <td>{{task.name}}</td>
+                       
+                       <td>
+                           {% if task.description is None%}
+                              nothing to show
+                           {% else%}
+                               {{task.description}}
+                           {% endif %}
+
+                       </td>
                        <td>
                         
-                            {% if person.age > 25 %}
-                                ok
+                            {% if task.status %}
+                               completed
                             {% else %}
-                                not ok
+                                pending
                             {% endif %}
                        </td>
                     <tr>

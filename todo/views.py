@@ -1,16 +1,11 @@
 from django.shortcuts import render,HttpResponse
-
+from .models import Task
 # Create your views here.
 def index(request):
-    people=[
-        {"name":"ram","age":20},
-        {"name":"shyam","age":30},
-        {"name":"john","age":40},
 
-        
-    ]
-    
+    tasks=Task.objects.all()
     context={
-        "people":people,
+        
+        "tasks":tasks
     }
     return render(request,"index.html",context)
