@@ -1,38 +1,44 @@
-<html>
-    <body>
-        <h1>todo list<h1>
-            <table border="1">
+{% extends "base.html" %}
+
+{% block "todo" %}{% endblock "todo" %}
+
+{% block body %}
+
+    <h1>todo list<h1>
+        <table class="table">
+            <tr>
+                <th>sn</th>
+                <th>name</th>
+                <th>description</th>
+                <th>status</th>
+            <tr>
+            {% for task in tasks %}
                 <tr>
-                    <th>sn</th>
-                    <th>name</th>
-                    <th>description</th>
-                    <th>status</th>
+                   <td>{{forloop.counter}}</td>
+                   <td>{{task.name}}</td>
+                   
+                   <td>
+                       {% if task.description is None%}
+                          nothing to show
+                       {% else%}
+                           {{task.description}}
+                       {% endif %}
+    
+                   </td>
+                   <td>
+                    
+                        {% if task.status %}
+
+                        <span class="text-success">completed</span>
+                           
+                        {% else %}
+                            <span class="text-danger">pending</span>
+                        {% endif %}
+                   </td>
                 <tr>
-                {% for task in tasks %}
-                    <tr>
-                       <td>{{forloop.counter}}</td>
-                       <td>{{task.name}}</td>
-                       
-                       <td>
-                           {% if task.description is None%}
-                              nothing to show
-                           {% else%}
-                               {{task.description}}
-                           {% endif %}
-
-                       </td>
-                       <td>
-                        
-                            {% if task.status %}
-                               completed
-                            {% else %}
-                                pending
-                            {% endif %}
-                       </td>
-                    <tr>
-                {% endfor %}
-            </table>
+            {% endfor %}
+        </table>
 
 
-    <body>
-<html>
+
+{% endblock body %}

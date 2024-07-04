@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Create task{% endblock title %}
+
+{% block body %}
+<h1>create task</h1>
+<form action="create" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputname1" class="form-label">name</label>
+      <input type="text" name="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp">
+      
+    </div>
+    <div class="mb-3">
+        <label for="floatingTextarea" class="form-label">Comments</label>
+        <textarea name="description" class="form-control" placeholder="write description" id="floatingTextarea"></textarea>
+        
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock body %}
